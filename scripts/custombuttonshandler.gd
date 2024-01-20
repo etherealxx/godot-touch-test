@@ -14,9 +14,10 @@ func append_dict(ref : ReferenceRect):
 	buttonrects[ref] = ref.get_global_rect()
 
 func calculate_scaled_position(pos : Vector2) -> Vector2:
-	return Vector2(	pos.x * original_reso.x / currentscenesize.x,
-					pos.y * original_reso.y / currentscenesize.y	)
-					# ☝️TODO, NEED FIX!! intinya ga semua screen scalenya sesuai dengan aspek ratio awalnya
+	var aspect_ratio_width = original_reso.x / currentscenesize.x
+	return Vector2(	pos.x * aspect_ratio_width,
+					pos.y * aspect_ratio_width	)
+					
 func check_click(event: InputEvent):
 	#print("doing check")
 	if !buttonrects.is_empty():
