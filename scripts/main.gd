@@ -31,12 +31,19 @@ func _process(float):
 		
 func _on_timer_timeout():
 	touchlabel.text = ""
+
+func reset_timer():
+	timer.stop()
+	timer.wait_time = 3
+	timer.start()
 	
 func _on_touchbutton_pressed():
 	touchlabel.text = "Button pressed!"
+	reset_timer()
 	
 func _on_touchbutton_released():
 	touchlabel.text = "Button released!"
+	reset_timer()
 	
 func doing_input(texttoprint):
 	if currenttext.size() > 25:
