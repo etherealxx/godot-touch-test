@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0ughlguy8gry"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_u1mjs"]
+[ext_resource type="Script" path="res://scripts/RefRectCustomTouchBtn.gd" id="2_a8aom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05ssn"]
+size = Vector2(120, 70)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_u1mjs")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "test"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 704.0
+offset_right = 41.0
+offset_bottom = 727.0
+text = "test"
+
+[node name="Button" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 406.0
+offset_top = 11.0
+offset_right = 525.0
+offset_bottom = 82.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(467, 122)
+shape = SubResource("RectangleShape2D_05ssn")
+
+[node name="RefRectCustomTouchBtn" type="ReferenceRect" parent="Control/TouchScreenButton"]
+offset_left = -60.0
+offset_top = -35.0
+offset_right = 60.0
+offset_bottom = 35.0
+editor_only = false
+script = ExtResource("2_a8aom")
+
+[node name="Label4" type="Label" parent="Control"]
+offset_left = 407.0
+offset_top = 239.0
+offset_right = 447.0
+offset_bottom = 262.0
+text = "test"
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 163.0
+offset_right = 447.0
+offset_bottom = 186.0
+text = "test"
+
+[node name="Fivesectimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
