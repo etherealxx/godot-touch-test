@@ -51,6 +51,14 @@ offset_bottom = 35.0
 editor_only = false
 script = ExtResource("2_a8aom")
 
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 163.0
+offset_right = 447.0
+offset_bottom = 186.0
+text = "test"
+
 [node name="Label4" type="Label" parent="Control"]
 offset_left = 407.0
 offset_top = 239.0
@@ -58,12 +66,12 @@ offset_right = 447.0
 offset_bottom = 262.0
 text = "test"
 
-[node name="Label3" type="Label" parent="Control"]
+[node name="Label5" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 407.0
-offset_top = 163.0
-offset_right = 447.0
-offset_bottom = 186.0
+offset_left = 238.0
+offset_top = 864.0
+offset_right = 278.0
+offset_bottom = 887.0
 text = "test"
 
 [node name="Fivesectimer" type="Timer" parent="."]

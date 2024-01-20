@@ -6,19 +6,25 @@ extends Node
 @onready var touchlabel = $Control/Label3
 @onready var timer = $Fivesectimer
 @onready var custompresslabel = $Control/Label4
+@onready var earlyprintlabel = $Control/Label5
+@onready var customtouch = $Control/TouchScreenButton/RefRectCustomTouchBtn
 
+var windowsize = DisplayServer.window_get_size()
 var input_count : int = 0
 var currenttext : Array[String]
-var click_true_release_false = false
+#var click_true_release_false = false
 
 func _ready():
 	#CustomButtons.reset_array()
 	touchbutton.pressed.connect(_on_touchbutton_pressed)
 	touchbutton.released.connect(_on_touchbutton_released)
 	timer.timeout.connect(_on_timer_timeout)
-
+	var customtouchrect = customtouch.get_global_rect()
+	CustomButtons.update_screensize(windowsize)
+	earlyprintlabel.text = "Windowsize: %v\nRectpos: %v\nRectsize: %v" % [windowsize, customtouchrect.position, customtouchrect.size]
+	
 func _process(float):
-	if click_true_release_false:
+	if CustomButtons.global_click:
 		custompresslabel.text = "custom click"
 	else:
 		custompresslabel.text = ""
@@ -103,13 +109,13 @@ func check_input(funcname : String, event):
 		debuginfolabel.text = ""
 				
 func _input(event):
-	click_true_release_false = false
-	if event is InputEventMouseButton:
-		if event.get_button_mask() == 1:
-			click_true_release_false = true
-			CustomButtons.check_click(event)
-		elif event.get_button_mask() == 0:
-			CustomButtons.check_release(event)
+	#click_true_release_false = false
+	#if event is InputEventMouseButton:
+		#if event.get_button_mask() == 1:
+			#click_true_release_false = true
+			#CustomButtons.check_click(event)
+		#elif event.get_button_mask() == 0:
+			#CustomButtons.check_release(event)
 			
 	check_input("_input()", event)
 				
